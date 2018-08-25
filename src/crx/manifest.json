@@ -13,12 +13,7 @@
     "image/*.json"
   ],
   "permissions": [
-    "https://*.confluence.atlassian.com/*",
-    "contextMenus",
-    "clipboardWrite",
-    "notifications",
-    "tabs",
-    "activeTab"
+    "https://*.confluence.atlassian.com/*"
   ],
   "content_scripts": [
     {

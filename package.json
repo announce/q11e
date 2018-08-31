@@ -1,6 +1,6 @@
 {
   "name": "icac",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "[![Build Status](https://travis-ci.org/announce/icac.svg?branch=master)](https://travis-ci.org/announce/icac)",
   "scripts": {
     "test": "npm-run-all clean lint bundle",
@@ -19,7 +19,8 @@
     "watch:crx:js": "onchange  --delay 100 '*.json' 'src/**/*.*js' 'script/**/*.js' -- npm-run-all lint:js bundle:crx:js bundle:crx:ejs notify",
     "watch:crx:manifest": "onchange  --delay 1000 'src/crx/manifest.json' -- npm-run-all lint:js bundle:crx:manifest notify",
     "watch:crx:assets": "onchange  --delay 1000 'src/**/*.{html,css,json}' 'src/**/image' -- npm-run-all lint:css bundle:crx:assets notify",
-    "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm-run-all lint:shell notify",
+    "watch:config": "onchange  --delay 1000 'config/**/*.{js,json}' -- npm-run-all lint:css bundle:crx:assets notify",
+    "watch:shell": "onchange  --delay 1000 'script/**/*.*sh' -- npm-run-all bundle:crx:secret notify",
     "watch:md": "onchange  --delay 1000 '*.md' -- npm-run-all lint:md notify",
     "build": "npm-run-all clean image bundle compress",
     "notify": "./script/notify.bash $?",

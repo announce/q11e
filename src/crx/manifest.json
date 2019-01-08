@@ -8,7 +8,6 @@
     "128": "image/icon_128.png"
   },
   "permissions": [
-    "https://*.confluence.atlassian.com/*",
     "contextMenus",
     "tabs",
     "activeTab"

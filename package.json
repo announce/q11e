@@ -1,12 +1,11 @@
 {
   "name": "icac",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "[![Build Status](https://travis-ci.org/announce/icac.svg?branch=master)](https://travis-ci.org/announce/icac)",
   "scripts": {
     "test": "npm-run-all clean lint bundle",
     "lint": "npm-run-all lint:**",
     "lint:js": "standard --fix",
-    "lint:css": "csslint src/**/*.css",
     "lint:shell": "docker run --rm -v $PWD:/mnt koalaman/shellcheck:v0.5.0 --exclude=SC1090 script/*.bash",
     "lint:md": "markdownlint README.md",
     "image": "npm-run-all image:**",
@@ -27,11 +26,8 @@
     "bundle": "npm-run-all bundle:** notify",
     "bundle:script": "babel script -d dist/script",
     "bundle:crx:manifest": "node dist/script/manifest.json.js > dist/crx/manifest.json",
-    "bundle:crx:secret": "node dist/script/inject-secret.js > config/__secret.json",
-    "bundle:crx:base64": "node dist/script/convert-image-base64.js > src/crx/image/base64.json",
     "bundle:crx:assets": "rsync -aP --include='*/' --include='*.png' --include='*.html' --include='*.css' --exclude='*' src/crx/ dist/crx",
     "bundle:crx:js": "find src/crx -type f -name '*.js' -print0 | xargs -0 -L 1 -I{} sh -c 'browserify $1 -o dist/crx/$(basename $1)' - {}",
-    "bundle:crx:ejs": "ejs-cli --base-dir src/crx \"form*.html.ejs\" --out dist/crx --options src/crx/image/base64.json",
     "clean": "rm -fr dist/* && mkdir -p dist/crx/image dist/script",
     "compress": "zip -r var/$(date +%s).zip dist/crx",
     "prestart": "yarn install",
@@ -98,12 +94,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/announce/q11e.git"
+    "url": "git+ssh://git@github.com/announce/icac.git"
   },
   "author": "Kenta Yamamoto <ymkjp@jaist.ac.jp>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/announce/q11e/issues"
+    "url": "https://github.com/announce/icac/issues"
   },
-  "homepage": "https://github.com/announce/q11e#readme"
+  "homepage": "https://chrome.google.com/webstore/detail/icac/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=package"
 }

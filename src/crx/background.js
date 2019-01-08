@@ -1,5 +1,4 @@
 'use strict'
-// const _ = require('lodash')
 const app = require('./app')
 
 /**
@@ -37,7 +36,7 @@ const main = (w, chrome) => {
   chrome.runtime.onInstalled.addListener(() => {
     console.log('chrome.runtime.onInstalled:', app.scriptName)
     chrome.contextMenus.create({
-      title: 'Toggle the language switcher',
+      title: '[iCAC] Toggle the language switch',
       contexts: ['page'],
       id: app.scriptName
     })

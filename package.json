@@ -1,6 +1,6 @@
 {
   "name": "icac",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "[![Build Status](https://travis-ci.org/announce/icac.svg?branch=master)](https://travis-ci.org/announce/icac)",
   "scripts": {
     "test": "npm-run-all clean lint bundle",
@@ -41,7 +41,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "babelify": "^8.0.0",
-    "base64-img": "^1.0.4",
     "brfs": "^2.0.0",
     "browserify": "^16.2.2",
     "eslint-plugin-flowtype": "^2.50.0",

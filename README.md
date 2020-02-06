@@ -1,18 +1,17 @@
-# icac
+# IAC
 
 [![Build Status](https://travis-ci.org/announce/icac.svg?branch=master)](https://travis-ci.org/announce/icac)
 
 ## Installation
 
-1. Go to [**iCAC**](https://chrome.google.com/webstore/detail/icac/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=github)
-2. Install the Chrome Extension
+1. Install the Chrome Extension at [**iAC - Chrome Web Store**](https://chrome.google.com/webstore/detail/icac/plbhlfecmbmkphfgcpoijlidjapddidj?utm_source=github).
 
 ## Prerequisite
 
 * Docker
   * Verified with: Version 18.06.0-ce-mac70
-* Node v8.11.x
-* Yarn v1.9.x
+* Node v8.x
+* Yarn v1.x
 
 ## Development
 

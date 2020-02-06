@@ -18,7 +18,7 @@ A Chrome Extension to provide quick access to localized `*.atlassian.com`:
 
 * Docker
   * Verified with: `Docker version 19.03.5, build 633a0ea`
-* Node v8.x
+* Node v12.x
 * Yarn v1.x
 
 ## Development

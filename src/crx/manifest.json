@@ -1,7 +1,7 @@
 {
-  "name": "iCAC",
+  "name": "iAC",
   "version": "",
-  "description": "A Chrome Extension for CAC i18n",
+  "description": "To provide quick access to localized *.atlassian.com",
   "icons": {
     "16": "image/icon_16.png",
     "48": "image/icon_48.png",

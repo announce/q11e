@@ -1,40 +1,56 @@
 // @flow
 'use strict'
 
-export const scriptName = 'announce/icac'
+export const scriptName = 'announce/iac'
 
 const TOP_DOMAIN = 'atlassian.com'
 const CAC_DOMAIN = 'confluence.atlassian.com'
 const WAC_DOMAIN = 'www.atlassian.com'
+const SAC_DOMAIN = 'support.atlassian.com'
 // @TODO Store prefix preference https://developer.chrome.com/extensions/options
-const PREFIX_JA = 'ja'
+const PREFIX = 'ja'
 
 export const createRedirectionUrl = (pageUrl: string): URL => {
-  const url = new URL(pageUrl)
+  let url = new URL(pageUrl)
   if (!supportedHost(url)) {
     console.log(`[${scriptName}.createRedirectionUrl] unsupported host:`, url.host)
     return url
   }
-  const JA_WAC = `${PREFIX_JA}.${TOP_DOMAIN}`
-  const JA_CAC = `${PREFIX_JA}.${CAC_DOMAIN}`
-  switch (url.host) {
-    case WAC_DOMAIN:
-      url.host = JA_WAC
+  switch (true) {
+    case url.host.indexOf(WAC_DOMAIN) !== -1:
+      url = convertPathPrefix(url)
       break
-    case JA_WAC:
-      url.host = WAC_DOMAIN
+    case url.host.indexOf(SAC_DOMAIN) !== -1:
+      url = convertPathPrefix(url)
       break
-    case CAC_DOMAIN:
-      url.host = JA_CAC
-      break
-    case JA_CAC:
-      url.host = CAC_DOMAIN
+    case url.host.indexOf(CAC_DOMAIN) !== -1:
+      url = convertSubdomain(url)
       break
     default:
-      console.error(`[${scriptName}.createRedirectionUrl] unexpected host:`, url.host)
+      console.warn(`[${scriptName}.createRedirectionUrl] unexpected host:`, url.host)
       break
   }
   console.log(`[${scriptName}.createRedirectionUrl] result:`, url.href)
+  return url
+}
+
+const convertPathPrefix = (url: URL): URL => {
+  let matcher = new RegExp(`^/${PREFIX}/?`)
+  if (matcher.test(url.pathname)) {
+    url.pathname = url.pathname.replace(matcher, '/')
+  } else {
+    url.pathname = `/${PREFIX}${url.pathname}`
+  }
+  return url
+}
+
+const convertSubdomain = (url: URL): URL => {
+  let matcher = new RegExp(`^${PREFIX}.`)
+  if (matcher.test(url.host)) {
+    url.host = url.host.replace(matcher, '')
+  } else {
+    url.host = `${PREFIX}.${url.host}`
+  }
   return url
 }
 

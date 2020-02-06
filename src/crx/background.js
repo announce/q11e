@@ -36,7 +36,7 @@ const main = (w, chrome) => {
   chrome.runtime.onInstalled.addListener(() => {
     console.log('chrome.runtime.onInstalled:', app.scriptName)
     chrome.contextMenus.create({
-      title: '[iCAC] Toggle the language switch',
+      title: '[iAC] Toggle the language switch',
       contexts: ['page'],
       id: app.scriptName
     })

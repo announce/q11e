@@ -6,7 +6,7 @@
     "test": "npm-run-all clean lint bundle",
     "lint": "npm-run-all lint:**",
     "lint:js": "standard --fix",
-    "lint:shell": "docker run --rm -v $PWD:/mnt koalaman/shellcheck:v0.7.0 --exclude=SC1090 script/*.bash",
+    "lint:shell": "docker run --rm -v $PWD:/mnt koalaman/shellcheck:v0.7.1 --exclude=SC1090 script/*.bash",
     "lint:md": "markdownlint README.md",
     "image": "npm-run-all image:**",
     "im": "docker run -v $(pwd)/src/crx/image:/app --rm -t acleancoder/imagemagick-full:0.0.2",
